@@ -65,7 +65,7 @@ https://templatemo.com/tm-586-scholar
                             <li class="scroll-to-section"><a href="#contact">Nous contacter!</a></li>
 
                             <div class="main-button">
-                                <a href="#">Espace etudiant</a>
+                                <a href="{{ route('dashboard') }}">Espace etudiant</a>
                             </div>
                         </ul>
                         <a class='menu-trigger'>
