@@ -69,7 +69,7 @@
                     <div class="sidebar-brand">
                         <a href="index.html"> <img alt="image" src="{{ asset('admin/assets/img/logo1.png') }}"
                                 class="header-logo" />
-                            <span class="logo-name">Evaluations</span>
+                            {{-- <span class="logo-name">Evaluations</span> --}}
                         </a>
                     </div>
                     <ul class="sidebar-menu">
@@ -89,23 +89,35 @@
                                 </a>
                             </li>
 
-                            <li class="{{ request()->is('personal') ? 'dropdown active' : 'dropdown' }}">
+                            <li class="{{ request()->is('books') ? 'dropdown active' : 'dropdown' }}">
+                                <a href="/books" class="nav-link">
+                                    <i class="fas fa-chalkboard-teacher"></i>
+                                    <span>Livres</span>
+                                </a>
+                            </li>
+
+                            <li class="{{ request()->is('students') ? 'dropdown active' : 'dropdown' }}">
+                                <a href="/students" class="nav-link">
+                                    <i class="fas fa-chalkboard-teacher"></i>
+                                    <span>Etudiants</span>
+                                </a>
+                            </li>
+
+                            <li class="{{ request()->is('users') ? 'dropdown active' : 'dropdown' }}">
+                                <a href="/users" class="nav-link">
+                                    <i class="fas fa-chalkboard-teacher"></i>
+                                    <span>Administrateurs</span>
+                                </a>
+                            </li>
+
+                            {{-- <li class="{{ request()->is('personal') ? 'dropdown active' : 'dropdown' }}">
                                 <a href="#" class="menu-toggle nav-link has-dropdown"><i
                                         class="fas fa-users"></i><span>Personnel</span></a>
                                 <ul class="dropdown-menu">
                                     <li><a class="nav-link" href="/personal/create">Ajouter un personnel</a></li>
                                     <li><a class="nav-link" href="/personal">Liste du personnel</a></li>
                                 </ul>
-                            </li>
-
-                            <li class="{{ request()->is('admin') ? 'dropdown active' : 'dropdown' }}">
-                                <a href="#" class="menu-toggle nav-link has-dropdown"><i
-                                        class="fas fa-user-tie"></i><span>Administrateurs</span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="nav-link" href="/admin/create">Ajouter un administrateur</a></li>
-                                    <li><a class="nav-link" href="/admin">Liste des administrateurs</a></li>
-                                </ul>
-                            </li>
+                            </li> --}}
                         @endif
                     </ul>
                 </aside>

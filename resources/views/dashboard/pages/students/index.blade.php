@@ -3,33 +3,27 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Liste des livres</h3>
+            <h3 class="card-title">Liste des etudiants</h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
             <div class="table-responsive">
-                <a href="/books/create" class="btn btn-primary mb-4">
-                    Ajouter un livre
-                </a>
-
                 <br>
                 <table class="table table-striped table-hover" id="tableExport" style="width:100%;">
                     <thead>
                         <tr>
-                            <th></th>
-                            <th>Nom</th>
-                            <th>Categorie</th>
+                            <th>Matricule</th>
+                            <th>Noms</th>
+                            <th>Email</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($books as $book)
+                        @foreach ($students as $student)
                             <tr>
-                                <td><img src="{{ asset($book->image ?? 'assets/images/digital.jpg') }}" height="50"
-                                        width="50" /></td>
-                                <td>{{ $book->title }}</td>
-                                <td>
-                                    {{ $book->category->name }}
+                                <td>{{ $student->matriculate }}</td>
+                                <td>{{ $student->name }}</td>
+                                <td>{{ $student->email }}</td>
                                 <td>
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-primary">Actions</button>
@@ -39,13 +33,13 @@
                                             <span class="sr-only"></span>
                                         </button>
                                         <div class="dropdown-menu" role="menu">
-                                            <a class="dropdown-item" href="/books/{{ $book->id }}/edit">Modifier</a>
-                                            <form method="delete" action="{{ route('books.destroy', $book->id) }}"
+                                            <a class="dropdown-item" href="/student/{{ $student->id }}/edit">Modifier</a>
+                                            {{-- <form method="delete" action="{{ route('student.destroy', $student->id) }}"
                                                 method="delete"">
                                                 @method('DELETE')
                                                 @csrf
                                                 <input class="dropdown-item" type="submit" value="Supprimer">
-                                            </form>
+                                            </form> --}}
                                             {{-- <a class="dropdown-item"
                                                 href="{{ route('categories.destroy', $category->id) }}">Supprimer</a> --}}
                                         </div>

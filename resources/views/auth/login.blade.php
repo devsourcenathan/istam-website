@@ -72,6 +72,9 @@
                                     </div>
                                 </form>
                             </div>
+                            <div class="mt-2 mb-4 text-muted text-center">
+                                Pas encore de compte ? <a href="{{ route('register') }}">S'inscrire maintenant</a>
+                            </div>
                         </div>
                     </div>
                 </div>

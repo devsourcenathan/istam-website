@@ -3,33 +3,30 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Liste des livres</h3>
+            <h3 class="card-title">Liste des administrateurs</h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
             <div class="table-responsive">
-                <a href="/books/create" class="btn btn-primary mb-4">
-                    Ajouter un livre
+                <a href="/users/create" class="btn btn-primary mb-4">
+                    Ajouter un admin
                 </a>
 
                 <br>
                 <table class="table table-striped table-hover" id="tableExport" style="width:100%;">
                     <thead>
                         <tr>
-                            <th></th>
                             <th>Nom</th>
-                            <th>Categorie</th>
+                            <th>Email</th>
                             <th></th>
+
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($books as $book)
+                        @foreach ($users as $user)
                             <tr>
-                                <td><img src="{{ asset($book->image ?? 'assets/images/digital.jpg') }}" height="50"
-                                        width="50" /></td>
-                                <td>{{ $book->title }}</td>
-                                <td>
-                                    {{ $book->category->name }}
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->email }}</td>
                                 <td>
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-primary">Actions</button>
@@ -39,8 +36,8 @@
                                             <span class="sr-only"></span>
                                         </button>
                                         <div class="dropdown-menu" role="menu">
-                                            <a class="dropdown-item" href="/books/{{ $book->id }}/edit">Modifier</a>
-                                            <form method="delete" action="{{ route('books.destroy', $book->id) }}"
+                                            <a class="dropdown-item" href="/users/{{ $user->id }}/edit">Modifier</a>
+                                            <form method="delete" action="{{ route('users.destroy', $user->id) }}"
                                                 method="delete"">
                                                 @method('DELETE')
                                                 @csrf
