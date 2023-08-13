@@ -21,28 +21,36 @@ class BookController extends Controller
         return view('dashboard.pages.books.create', compact('categories'));
     }
 
+    function display_book($id)
+    {
+        $book = Book::where('title', $id)->get()->first();
+        return view('dashboard.pages.books.display', compact('book'));
+    }
+
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'title' => 'required',
-            'description' => 'required',
-            'source' => 'required|mimes:pdf|max:2048',
-            'category_id' => 'required|exists:categories,id'
-        ]);
-
-        $imagePath = $request->file('image')->store('public/images');
-        $sourcePath = $request->file('source')->store('public/source');
-
         $book = new Book();
-        $book->image = $imagePath;
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('public/images');
+            $book->image = str_replace('storage/', 'public/', $imagePath);
+        } else {
+            $book->image = null;
+        }
+
+        if ($request->hasFile('source')) {
+            $sourcePath = $request->file('source')->store('public/source');
+            $book->url = str_replace('storage/', 'public/', $sourcePath);
+        } else {
+            $book->url = null;
+        }
+
         $book->title = $request->title;
         $book->description = $request->description;
-        $book->source = $sourcePath;
+
         $book->category_id = $request->category_id;
         $book->save();
 
-        return redirect()->route('dashboard.pages.books.index');
+        return redirect()->route('books.index');
     }
 
     public function show(Book $book)
@@ -58,24 +66,17 @@ class BookController extends Controller
 
     public function update(Request $request, Book $book)
     {
-        $validatedData = $request->validate([
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'title' => 'required',
-            'description' => 'required',
-            'source' => 'nullable|mimes:pdf|max:2048',
-            'category_id' => 'required|exists:categories,id'
-        ]);
 
         if ($request->hasFile('image')) {
             Storage::delete($book->image);
             $imagePath = $request->file('image')->store('public/images');
-            $book->image = $imagePath;
+            $book->image = str_replace('storage/', 'public/', $imagePath);
         }
 
         if ($request->hasFile('source')) {
             Storage::delete($book->source);
             $sourcePath = $request->file('source')->store('public/source');
-            $book->source = $sourcePath;
+            $book->url = str_replace('storage/', 'public/', $sourcePath);
         }
 
         $book->title = $request->title;
@@ -83,7 +84,7 @@ class BookController extends Controller
         $book->category_id = $request->category_id;
         $book->save();
 
-        return redirect()->route('dashboard.pages.books.index');
+        return redirect()->route('books.index');
     }
 
     public function destroy(Book $book)

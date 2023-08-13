@@ -26,6 +26,7 @@ class CategoryController extends Controller
 
     public function show(Category $category)
     {
+        // dd($category);
         return view('dashboard.pages.categories.show', compact('category'));
     }
 
@@ -42,6 +43,7 @@ class CategoryController extends Controller
 
     public function destroy(Category $category)
     {
+        // dd($category);÷÷
         $category->delete();
         return redirect()->route('categories.index');
     }
