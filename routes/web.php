@@ -6,8 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BookController;
 use App\Models\Book;
 use App\Models\Category;
-
-
+use App\Models\User;
 
 Route::get('/', function () {
     return view('welcome');
@@ -16,7 +15,8 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     $categories = Category::all();
     $books = Book::take(10)->get();
-    return view('dashboard.pages.index', compact('categories', 'books'));
+    $students = User::where("role", "student")->get()->count();
+    return view('dashboard.pages.index', compact('categories', 'books', 'students'));
 })->middleware(['auth'])->name('dashboard');
 
 // Route::middleware(['auth'])->group(function () {
@@ -33,6 +33,7 @@ Route::middleware(['auth'])->group(function () {
         Route::delete('/{id}', [CategoryController::class, 'destroy'])->name('destroy');
         Route::delete('/{id}/edit', [CategoryController::class, 'edit'])->name('edit');
         Route::get('/{id}', [CategoryController::class, 'show'])->name('show');
+        Route::get('/find/{id}', [CategoryController::class, 'find'])->name('find');
     });
 
     Route::group(['prefix' => 'books', 'as' => 'books.'], function () {

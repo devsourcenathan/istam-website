@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -16,6 +17,15 @@ class CategoryController extends Controller
     public function create()
     {
         return view('dashboard.pages.categories.create');
+    }
+
+    function find($id)
+    {
+        $cat = Category::find($id);
+
+        $books = Book::where("category_id", $cat->id)->get();
+        $categories = Category::all();
+        return view('dashboard.pages.index', compact('categories', 'books', 'cat'));
     }
 
     public function store(Request $request)

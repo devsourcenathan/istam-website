@@ -50,7 +50,7 @@ https://templatemo.com/tm-586-scholar
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <nav class="main-nav">
+                    <nav class="main-nav" style="">
                         <!-- ***** Logo Start ***** -->
                         <a href="/">
                             <img src="{{ asset('assets/images/logo.png') }}" height="80" width="100" />
