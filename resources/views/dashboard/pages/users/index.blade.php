@@ -37,14 +37,8 @@
                                         </button>
                                         <div class="dropdown-menu" role="menu">
                                             <a class="dropdown-item" href="/users/{{ $user->id }}/edit">Modifier</a>
-                                            <form method="delete" action="{{ route('users.destroy', $user->id) }}"
-                                                method="delete"">
-                                                @method('DELETE')
-                                                @csrf
-                                                <input class="dropdown-item" type="submit" value="Supprimer">
-                                            </form>
-                                            {{-- <a class="dropdown-item"
-                                                href="{{ route('categories.destroy', $category->id) }}">Supprimer</a> --}}
+                                            <a class="dropdown-item" href="/users/{{ $user->id }}/delete">Supprimer</a>
+
                                         </div>
                                     </div>
                                 </td>

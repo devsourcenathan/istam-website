@@ -32,22 +32,22 @@ class BookController extends Controller
         $book = new Book();
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('public/images');
-            $book->image = str_replace('storage/', 'public/', $imagePath);
+            $book->image = 'site/' . str_replace('public/', 'public/storage/', $imagePath);
         } else {
             $book->image = null;
         }
 
         if ($request->hasFile('source')) {
             $sourcePath = $request->file('source')->store('public/source');
-            $book->url = str_replace('storage/', 'public/', $sourcePath);
+            $book->url = 'site/' . str_replace('public/', 'public/storage/', $sourcePath);
         } else {
             $book->url = null;
         }
 
         $book->title = $request->title;
         $book->description = $request->description;
-
         $book->category_id = $request->category_id;
+
         $book->save();
 
         return redirect()->route('books.index');
@@ -58,41 +58,49 @@ class BookController extends Controller
         return view('dashboard.pages.books.show', compact('book'));
     }
 
-    public function edit(Book $book)
+    public function edit($id)
     {
+        $book = Book::find($id);
         $categories = Category::all();
         return view('dashboard.pages.books.edit', compact('book', 'categories'));
     }
 
-    public function update(Request $request, Book $book)
+    public function update(Request $request, $id)
     {
 
+        $book = Book::find($id);
         if ($request->hasFile('image')) {
-            Storage::delete($book->image);
             $imagePath = $request->file('image')->store('public/images');
-            $book->image = str_replace('storage/', 'public/', $imagePath);
+            $book->image = 'site/' . str_replace('public/', 'public/storage/', $imagePath);
+        } else {
+            $book->image = null;
         }
 
         if ($request->hasFile('source')) {
-            Storage::delete($book->source);
             $sourcePath = $request->file('source')->store('public/source');
-            $book->url = str_replace('storage/', 'public/', $sourcePath);
+            $book->url = 'site/' . str_replace('public/', 'public/storage/', $sourcePath);
+        } else {
+            $book->url = null;
         }
 
         $book->title = $request->title;
+        if (!$request->category_id == 0) {
+            $book->category_id = $request->category_id;
+        }
         $book->description = $request->description;
-        $book->category_id = $request->category_id;
+
         $book->save();
 
         return redirect()->route('books.index');
     }
 
-    public function destroy(Book $book)
+    public function destroy($id)
     {
+        $book = Book::find($id);
         Storage::delete($book->image);
         Storage::delete($book->source);
         $book->delete();
 
-        return redirect()->route('dashboard.pages.books.index');
+        return redirect()->route('books.index');
     }
 }

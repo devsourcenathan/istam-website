@@ -40,20 +40,23 @@ class CategoryController extends Controller
         return view('dashboard.pages.categories.show', compact('category'));
     }
 
-    public function edit(Category $category)
+    public function edit($id)
     {
+        $category = Category::find($id);
         return view('dashboard.pages.categories.edit', compact('category'));
     }
 
-    public function update(Request $request, Category $category)
+    public function update(Request $request, $id)
     {
+        $category = Category::find($id);
         $category->update($request->all());
         return redirect()->route('categories.index');
     }
 
-    public function destroy(Category $category)
+    public function destroy($id)
     {
         // dd($category);÷÷
+        $category = Category::find($id);
         $category->delete();
         return redirect()->route('categories.index');
     }

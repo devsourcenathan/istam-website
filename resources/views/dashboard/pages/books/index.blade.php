@@ -40,12 +40,8 @@
                                         </button>
                                         <div class="dropdown-menu" role="menu">
                                             <a class="dropdown-item" href="/books/{{ $book->id }}/edit">Modifier</a>
-                                            <form method="delete" action="{{ route('books.destroy', $book->id) }}"
-                                                method="delete"">
-                                                @method('DELETE')
-                                                @csrf
-                                                <input class="dropdown-item" type="submit" value="Supprimer">
-                                            </form>
+                                            <a class="dropdown-item" href="/books/{{ $book->id }}/delete">Supprimer</a>
+
                                             {{-- <a class="dropdown-item"
                                                 href="{{ route('categories.destroy', $category->id) }}">Supprimer</a> --}}
                                         </div>

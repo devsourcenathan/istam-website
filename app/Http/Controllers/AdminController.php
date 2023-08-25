@@ -26,6 +26,11 @@ class AdminController extends Controller
         return view('dashboard.pages.users.create');
     }
 
+    function edit($id)
+    {
+        $user = User::find($id);
+        return view('dashboard.pages.users.edit', compact('user'));
+    }
     function store(Request $request)
     {
         //I want to stote a new user with role admin,
@@ -38,6 +43,29 @@ class AdminController extends Controller
 
         $user->save();
 
-        return redirect('users.users');
+        return redirect('users');
+    }
+
+    function update(Request $request, $id)
+    {
+        //I want to stote a new user with role admin,
+        //but I dont know how to do it
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        if (isset($request->password)) {
+            $user->password = Hash::make($request->password);
+        }
+
+        $user->save();
+
+        return redirect('users');
+    }
+
+    function destroy($id)
+    {
+        $user = User::find($id);
+        $user->delete();
+        return redirect('users');
     }
 }
