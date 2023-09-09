@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\TeacherController;
 use App\Models\Book;
 use App\Models\Category;
 use App\Models\User;
@@ -49,6 +50,16 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/{id}/edit', [AdminController::class, 'edit'])->name('edit');
         Route::get('/{id}/delete', [AdminController::class, 'destroy'])->name('destroy');
         Route::get('/{id}', [AdminController::class, 'show'])->name('show');
+    });
+
+    Route::group(['prefix' => 'teachers', 'as' => 'teachers.'], function () {
+        Route::get('/', [TeacherController::class, 'teachers'])->name('teachers');
+        Route::get('/create', [TeacherController::class, 'create'])->name('create');
+        Route::post('/', [TeacherController::class, 'store'])->name('store');
+        Route::post('/{id}', [TeacherController::class, 'update'])->name('update');
+        Route::get('/{id}/edit', [TeacherController::class, 'edit'])->name('edit');
+        Route::get('/{id}/delete', [TeacherController::class, 'destroy'])->name('destroy');
+        Route::get('/{id}', [TeacherController::class, 'show'])->name('show');
     });
 
     Route::group(['prefix' => 'students', 'as' => 'students.'], function () {
