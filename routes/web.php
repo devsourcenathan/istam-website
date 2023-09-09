@@ -53,7 +53,7 @@ Route::middleware(['auth'])->group(function () {
     });
 
     Route::group(['prefix' => 'teachers', 'as' => 'teachers.'], function () {
-        Route::get('/', [TeacherController::class, 'teachers'])->name('teachers');
+        Route::get('/', [TeacherController::class, 'index'])->name('teachers');
         Route::get('/create', [TeacherController::class, 'create'])->name('create');
         Route::post('/', [TeacherController::class, 'store'])->name('store');
         Route::post('/{id}', [TeacherController::class, 'update'])->name('update');

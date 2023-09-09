@@ -59,13 +59,13 @@ https://templatemo.com/tm-586-scholar
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
                             <li class="scroll-to-section"><a href="#top" class="active">Accueil</a></li>
-                            <li class="scroll-to-section"><a href="#services">Diplomes</a></li>
+                            <li class="scroll-to-section"><a href="#services">Diplômes</a></li>
                             <li class="scroll-to-section"><a href="#courses">Formations</a></li>
                             <li class="scroll-to-section"><a href="#team">Nous choisir</a></li>
                             <li class="scroll-to-section"><a href="#contact">Nous contacter!</a></li>
 
                             <div class="main-button">
-                                <a href="{{ route('dashboard') }}">Espace etudiant</a>
+                                <a href="{{ route('dashboard') }}">Espace étudiant</a>
                             </div>
                         </ul>
                         <a class='menu-trigger'>

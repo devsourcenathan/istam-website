@@ -5,13 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class BookController extends Controller
 {
     public function index()
     {
-        $books = Book::all();
+        $books = Auth::user()->role === "teacher" ? Book::where("teacher_id", Auth::user()->id)->get() : Book::all();
+
         return view('dashboard.pages.books.index', compact('books'));
     }
 
@@ -29,6 +31,7 @@ class BookController extends Controller
 
     public function store(Request $request)
     {
+
         $book = new Book();
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('public/images');
@@ -47,7 +50,7 @@ class BookController extends Controller
         $book->title = $request->title;
         $book->description = $request->description;
         $book->category_id = $request->category_id;
-
+        $book->teacher_id = Auth::user()->role === "teacher" ? Auth::user()->id : null;
         $book->save();
 
         return redirect()->route('books.index');

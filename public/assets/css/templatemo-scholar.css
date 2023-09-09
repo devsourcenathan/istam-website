@@ -766,7 +766,8 @@ Banner Style
 */
 
 .main-banner {
-    background-image: url(../images/banner-bg.jpg);
+    /* background-image: url(../images/bg-blue.png); */
+    background-color: #1e98ef;
     background-position: right bottom;
     background-repeat: no-repeat;
     background-size: cover;

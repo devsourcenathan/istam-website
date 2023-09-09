@@ -74,7 +74,22 @@
                     </div>
                     <ul class="sidebar-menu">
 
-                        @if (Auth::user()->role !== 'student')
+                        @if (Auth::user()->role === 'teacher')
+                            <li class="{{ request()->is('/') ? 'dropdown active' : 'dropdown' }}">
+                                <a href="/dashboard" class="nav-link">
+                                    <i class="fa fa-home"></i>
+                                    <span> Tableau de bord</span>
+                                </a>
+                            </li>
+
+                            <li class="{{ request()->is('books') ? 'dropdown active' : 'dropdown' }}">
+                                <a href="/books" class="nav-link">
+                                    <i class="fas fa-book"></i>
+                                    <span>Livres</span>
+                                </a>
+                            </li>
+                        @endif
+                        @if (Auth::user()->role === 'admin')
                             <li class="{{ request()->is('/') ? 'dropdown active' : 'dropdown' }}">
                                 <a href="/dashboard" class="nav-link">
                                     <i class="fa fa-home"></i>
@@ -100,6 +115,13 @@
                                 <a href="/students" class="nav-link">
                                     <i class="fas fa-users"></i>
                                     <span>Etudiants</span>
+                                </a>
+                            </li>
+
+                            <li class="{{ request()->is('teachers') ? 'dropdown active' : 'dropdown' }}">
+                                <a href="/teachers" class="nav-link">
+                                    <i class="fas fa-user-md"></i>
+                                    <span>Enseignants</span>
                                 </a>
                             </li>
 

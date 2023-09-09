@@ -10,18 +10,28 @@ class TeacherController extends Controller
 {
     function create()
     {
-        return view("dashboard.pages.teachers.index");
+        return view("dashboard.pages.teachers.create");
+    }
+
+    function edit($id)
+    {
+        $teacher = User::find($id);
+
+        return view("dashboard.pages.teachers.edit", compact('teacher'));
     }
 
     function store(Request $request)
     {
         $teacher = new User();
 
+        $teacher->role = "teacher";
         $teacher->name = $request->name;
         $teacher->email = $request->email;
         $teacher->password = Hash::make($request->password);
 
         $teacher->save();
+
+        return redirect('teachers');
     }
 
     function index()
@@ -32,8 +42,6 @@ class TeacherController extends Controller
 
     function update(Request $request, $id)
     {
-        //I want to stote a new user with role admin,
-        //but I dont know how to do it
         $teacher = User::find($id);
         $teacher->name = $request->name;
         $teacher->email = $request->email;
