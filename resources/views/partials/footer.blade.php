@@ -1,24 +1,24 @@
-
 <footer>
     <div class="container">
-      <div class="col-lg-12">
-        <p>Copyright © <span id="year"></span> ISTAM. All rights reserved. </p>
-      </div>
+        <div class="col-lg-12">
+            <p>Copyright © <span id="year"></span> ISTAM. All rights reserved. </p>
+        </div>
     </div>
-  </footer>
+</footer>
 
-  <!-- Scripts -->
-  <!-- Bootstrap core JavaScript -->
-  <script src="{{asset("vendor/jquery/jquery.min.js")}}"></script>
-  <script src="{{asset("vendor/bootstrap/js/bootstrap.min.js")}}"></script>
-  <script src="{{asset("assets/js/isotope.min.js")}}"></script>
-  <script src="{{asset("assets/js/owl-carousel.js")}}"></script>
-  <script src="{{asset("assets/js/counter.js")}}"></script>
-  <script src="{{asset("assets/js/custom.js")}}"></script>
+<!-- Scripts -->
+<!-- Bootstrap core JavaScript -->
+<script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+<script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('assets/js/isotope.min.js') }}"></script>
+<script src="{{ asset('assets/js/owl-carousel.js') }}"></script>
+<script src="{{ asset('assets/js/counter.js') }}"></script>
+<script src="{{ asset('assets/js/custom.js') }}"></script>
 
-  <script>
+<script>
     document.getElementById("year").innerHTML = new Date().getFullYear();
-  </script>
+</script>
 
-  </body>
+</body>
+
 </html>

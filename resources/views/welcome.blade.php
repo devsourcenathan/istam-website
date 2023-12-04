@@ -1,6 +1,18 @@
 @extends('partials.main')
 
+
 @section('content')
+    {{-- Show success message --}}
+    @if (Session::has('success'))
+        <div class="alert alert-success">
+            {{ Session::get('success') }}
+            <script>
+                setTimeout(function() {
+                    $(".alert-success").fadeOut();
+                }, 3000);
+            </script>
+        </div>
+    @endif
     <div class="main-banner" id="top">
         <div class="container">
             <div class="row">
@@ -172,6 +184,29 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingSix">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                        Où nous trouver ?
+                                    </button>
+                                </h2>
+                                <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        OKALA : 100 m après l’ancien dispensaire d’OKALA (en allant vers MIKOLONGO sur la
+                                        Gauche)
+                                        <br>
+                                        <code>Contacts</code>
+                                        <br>
+                                        Tél (+241) 065 40 92 65
+                                        <br>
+                                        E-mail : istamgabon@gmail.com
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingTwo">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -500,7 +535,8 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="contact-us-content">
-                            <form id="contact-form" action="" method="post">
+                            <form id="contact-form" action="{{ url('/contact') }}" method="post">
+                                @csrf
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <fieldset>

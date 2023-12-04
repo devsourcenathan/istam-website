@@ -4,10 +4,13 @@ use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\TeacherController;
 use App\Models\Book;
 use App\Models\Category;
 use App\Models\User;
+use Illuminate\Support\Facades\Mail;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -25,6 +28,7 @@ Route::get('/dashboard', function () {
 Route::middleware(['auth'])->group(function () {
     Route::group(['prefix' => 'categories', 'as' => 'categories.'], function () {
         Route::get('/', [CategoryController::class, 'index'])->name('index');
+        Route::get('/find/{id}', [CategoryController::class, 'find'])->name('find');
         Route::get('/create', [CategoryController::class, 'create'])->name('create');
         Route::post('/', [CategoryController::class, 'store'])->name('store');
         Route::post('/{id}', [CategoryController::class, 'update'])->name('update');
@@ -67,5 +71,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/{id}', [BookController::class, 'display_book'])->name('display_book');
     });
 });
+
+Route::post('/contact', [ContactController::class, 'sendEmail'])->name('contact.sendEmail');
+
 
 require __DIR__ . '/auth.php';
