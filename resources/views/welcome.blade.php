@@ -528,41 +528,127 @@
                 <div class="row">
                     <div class="col-lg-6 align-self-center">
                         <div class="section-heading">
-                            <h6>Nous contacter</h6>
-                            <h2>N'esitez pas a nous ecrire!</h2>
+                            <h6 style="font-size: 35px">Nous contacter</h6>
+                            <br>
+                            {{-- <h2>N'esitez pas a nous ecrire!</h2> --}}
+                            <div class="contact-us-content">
+
+                                <form id="contact-form" action="{{ url('/contact') }}" method="post">
+                                    @csrf
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <fieldset>
+                                                <input type="name" name="name" id="name"
+                                                    placeholder="Votre Nom..." autocomplete="on" required>
+                                            </fieldset>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <fieldset>
+                                                <input type="text" name="email" id="email"
+                                                    pattern="[^ @]*@[^ @]*" placeholder="Votre Email..." required="">
+                                            </fieldset>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <fieldset>
+                                                <textarea name="message" id="message" placeholder="Votre Message"></textarea>
+                                            </fieldset>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <fieldset>
+                                                <button type="submit" id="form-submit" class="orange-button">Envoyer le
+                                                    message</button>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
 
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="contact-us-content">
-                            <form id="contact-form" action="{{ url('/contact') }}" method="post">
-                                @csrf
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <fieldset>
-                                            <input type="name" name="name" id="name"
-                                                placeholder="Votre Nom..." autocomplete="on" required>
-                                        </fieldset>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <fieldset>
-                                            <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*"
-                                                placeholder="Votre Email..." required="">
-                                        </fieldset>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <fieldset>
-                                            <textarea name="message" id="message" placeholder="Votre Message"></textarea>
-                                        </fieldset>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <fieldset>
-                                            <button type="submit" id="form-submit" class="orange-button">Envoyer le
-                                                message</button>
-                                        </fieldset>
-                                    </div>
+
+                            <h1>Contact Info</h1>
+                            <br><br>
+                            <div class="dbox w-100 d-flex align-items-start">
+
+                                <svg width="150px" height="150px" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0" />
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path
+                                            d="M12 22C13 17 20 16.4183 20 10C20 5.58172 16.4183 2 12 2C7.58172 2 4 5.58172 4 10C4 16.4183 11 17 12 22Z"
+                                            stroke="#ffffff" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z"
+                                            stroke="#ffffff" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </g>
+                                </svg>
+                                <br>
+                                <br>
+                                <div class="text pl-3">
+                                    <h5>Notre Administration
+                                    </h5>
+                                    <p style="color: white">
+                                        OKALA : 100 m après l’ancien dispensaire d’OKALA (en allant vers MIKOLONGO sur la
+                                        Gauche)
+                                    </p>
                                 </div>
-                            </form>
+                            </div>
+                            <br><br>
+
+                            <div class="dbox w-100 d-flex align-items-start">
+                                <svg width="100px" height="100px" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0" />
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path
+                                            d="M12 7V12H15M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+                                            stroke="#ffffff" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </g>
+                                </svg>
+                                <br>
+                                <br>
+                                <div class="text pl-3">
+                                    <h5>Heures d'ouverture des bureaux
+                                    </h5>
+                                    <p style="color: white">
+                                        LUN-VEN: 8h – 18h
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br>
+
+                            <div class="dbox w-100 d-flex align-items-start">
+                                <svg width="80px" height="80px" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path
+                                            d="M21.0039 12C21.0039 16.9706 16.9745 21 12.0039 21C9.9675 21 3.00463 21 3.00463 21C3.00463 21 4.56382 17.2561 3.93982 16.0008C3.34076 14.7956 3.00391 13.4372 3.00391 12C3.00391 7.02944 7.03334 3 12.0039 3C16.9745 3 21.0039 7.02944 21.0039 12Z"
+                                            stroke="#ffffff" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round"></path>
+                                    </g>
+                                </svg>
+                                <br>
+                                <br>
+                                <div class="text pl-3">
+                                    <h5>Contactez-nous
+                                    </h5>
+                                    <p style="color: white">
+                                        Tél (+241) 065 40 92 65
+                                        <br>
+                                        E-mail : istamgabon@gmail.com
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br>
                         </div>
                     </div>
                 </div>
