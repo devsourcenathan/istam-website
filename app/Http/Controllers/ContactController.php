@@ -16,7 +16,7 @@ class ContactController extends Controller
             'message' => 'required'
         ]);
 
-        Mail::to('site.istam@gmail.com')->send(new ContactFormMail($request->all()));
+        Mail::to('istamgabon@gmail.com')->send(new ContactFormMail($request->all()));
 
         return redirect('/')->with('success', 'Email envoyé avec succès');
     }

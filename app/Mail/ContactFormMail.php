@@ -33,6 +33,6 @@ class ContactFormMail extends Mailable
         $name = $this->data['name'];
         $email = $this->data['email'];
         $body = $this->data['message'];
-        return $this->from($email)->to("site.istam@gmail.com")->subject("Nouveau message provenant de $email")->view('emails.contact-form', compact('name', 'email', 'body'));
+        return $this->from($email)->to("istamgabon@gmail.com")->subject("Nouveau message provenant de $email")->view('emails.contact-form', compact('name', 'email', 'body'));
     }
 }
