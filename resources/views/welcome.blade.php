@@ -176,7 +176,7 @@
                         <h2>Pourquoi nous choisir ?</h2>
                         <p>
                             Decouvrez quelques uns de nos atouts qui nous permettent de rendre la formation de nos
-                            etudiants
+                            étudiants
                             plus agreable.
                         </p>
                     </div>
@@ -353,9 +353,9 @@
                             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
                                 data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    <strong>ISTAM</strong> signifie <code>INSTITUT SUPERIEUR DES TECHNIQUES AVANCEES ET
-                                        DE
-                                        MANAGEMENT</code>
+                                    <strong>ISTAM</strong> signifie INSTITUT SUPERIEUR DES TECHNIQUES AVANCEES ET
+                                    DE
+                                    MANAGEMENT
                                 </div>
                             </div>
                         </div>
@@ -373,7 +373,7 @@
                                     OKALA : 100 m après l’ancien dispensaire d’OKALA (en allant vers MIKOLONGO sur la
                                     Gauche)
                                     <br>
-                                    <code>Contacts</code>
+                                    <b>Contacts</b>
                                     <br>
                                     Tél (+241) 065 40 92 65
                                     <br>
@@ -468,7 +468,7 @@
                             <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFour"
                                 data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    L’admission à l’<code>ISTAM</code> se fait par examen de dossier :
+                                    L’admission à l’ISTAM se fait par examen de dossier :
                                     <br> <strong>ADMISSION SUR EXAMEN DE DOSSIER</strong>
                                     Le candidat doit être titulaire d’un BAC ou équivalent ou avoir fait la classe de
                                     terminale
@@ -499,13 +499,13 @@
                             <div class="col-lg-3 col-md-6">
                                 <div class="counter">
                                     <h2 class="timer count-title count-number" data-to="350" data-speed="1000"></h2>
-                                    <p class="count-text ">Etudiants</p>
+                                    <p class="count-text ">Étudiants</p>
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-6">
                                 <div class="counter end">
                                     <h2 class="timer count-title count-number" data-to="4" data-speed="1000"></h2>
-                                    <p class="count-text ">Annee d'experience</p>
+                                    <p class="count-text ">Année d'expérience</p>
                                 </div>
                             </div>
                         </div>
