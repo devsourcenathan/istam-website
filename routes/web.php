@@ -73,6 +73,11 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::post('/contact', [ContactController::class, 'sendEmail'])->name('contact.sendEmail');
+// Route::get('/gallery', function () {
+//     return view('gallery');
+// })->name('gallery');
 
-
+Route::get("/carousel", function () {
+    return view('gallery');
+});
 require __DIR__ . '/auth.php';

@@ -70,7 +70,6 @@ class BookController extends Controller
 
     public function update(Request $request, $id)
     {
-
         $book = Book::find($id);
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('public/images');

@@ -774,6 +774,15 @@ Banner Style
     padding: 170px 0px 120px 0px;
 }
 
+.main-banner-gallery {
+    /* background-image: url(../images/bg-blue.png); */
+    background-color: #1e98ef;
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 80px 0px 30px 0px;
+}
+
 .main-banner .item-1 {
     background-image: url(../images/banner-item-01.jpg);
 }

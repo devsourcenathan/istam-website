@@ -61,9 +61,10 @@ https://templatemo.com/tm-586-scholar
                             <li class="scroll-to-section"><a href="#top" class="active">Accueil</a></li>
                             <li class="scroll-to-section"><a href="#courses">Formations</a></li>
                             <li class="scroll-to-section"><a href="#team">Nous choisir</a></li>
+
                             <li class="scroll-to-section"><a href="#services">Diplômes</a></li>
                             <li class="scroll-to-section"><a href="#contact">Nous contacter!</a></li>
-
+                            <li class=""><a href="/carousel">Notre Gallery</a></li>
                             <div class="main-button">
                                 <a href="{{ route('dashboard') }}">Espace étudiant</a>
                             </div>
